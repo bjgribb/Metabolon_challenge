@@ -5,7 +5,7 @@ current_time = datetime.datetime.utcnow()
 
 RSS_dict = {
     'BBC': ['http://feeds.bbci.co.uk/news/rss.xml#'],
-    'ESPN': ['https://www.espn.com/espn/rss/news', 'http://www.espn.com/espn/rss/nba/news'],
+    'ESPN': ['https://www.espn.com/espn/rss/news', 'http://billmaher.hbo.libsynpro.com/rss'],
     'CNN': ['http://rss.cnn.com/rss/cnn_topstories.rss'],
     'Real Time with Bill Maher': ['http://billmaher.hbo.libsynpro.com/rss'],
     'Craigslist': ['https://www.craigslist.org/about/best/all/index.rss'],
