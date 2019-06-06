@@ -1,4 +1,5 @@
 import datetime
+import feedparser
 
 current_time = datetime.datetime.utcnow()
 
@@ -13,3 +14,15 @@ RSS_dict = {
     'Reuters': 'http://feeds.reuters.com/reuters/technologyNews',
     'Mashable': 'http://feeds.mashable.com/Mashable',
 }
+
+def getRSStime(rss_url):
+    try:
+        RSStime = feedparser.parse(rss_url).entries[0].updated_parsed
+        return RSStime
+    except ValueError:
+        RSStime = feedparser.parse(rss_url).entries[0].published.parsed
+        return RSStime
+
+
+print(getRSStime('http://feeds.mashable.com/Mashable'))
+print(getRSStime('http://www.engadget.com/rss.xml'))
