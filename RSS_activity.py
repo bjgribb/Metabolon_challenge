@@ -25,6 +25,7 @@ def get_RSS_time(rss_url):
 
 
 def get_inactive_RSS_feeds(RSS_dict):
+    inactive_RSS_companies = []
     for k, v in RSS_dict.items():
         latest_RSS_time = get_RSS_time(v)
         latest_RSS_datetime = datetime.datetime(
@@ -36,7 +37,11 @@ def get_inactive_RSS_feeds(RSS_dict):
             latest_RSS_time.tm_sec
         )
         print(k, latest_RSS_datetime)
+        time_delta = datetime.timedelta(hours=24)
+        if current_time - latest_RSS_datetime > time_delta:
+            inactive_RSS_companies.append(k)
+    return inactive_RSS_companies
 
 
-get_inactive_RSS_feeds(RSS_dict)
+print(get_inactive_RSS_feeds(RSS_dict))
 print('current time', current_time)
