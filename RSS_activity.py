@@ -15,14 +15,19 @@ RSS_dict = {
     'Mashable': 'http://feeds.mashable.com/Mashable',
 }
 
-def getRSStime(rss_url):
+def get_RSS_time(rss_url):
     try:
-        RSStime = feedparser.parse(rss_url).entries[0].updated_parsed
-        return RSStime
+        RSS_time = feedparser.parse(rss_url).entries[0].updated_parsed
+        return RSS_time
     except ValueError:
-        RSStime = feedparser.parse(rss_url).entries[0].published.parsed
-        return RSStime
+        RSS_time = feedparser.parse(rss_url).entries[0].published.parsed
+        return RSS_time
 
 
-print(getRSStime('http://feeds.mashable.com/Mashable'))
-print(getRSStime('http://www.engadget.com/rss.xml'))
+def get_inactive_RSS_feeds(RSS_dict):
+    for k, v in RSS_dict.items():
+        latest_RSS_time = get_RSS_time(v)
+        print (k, latest_RSS_time)
+
+
+get_inactive_RSS_feeds(RSS_dict)
