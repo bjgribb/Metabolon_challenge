@@ -27,7 +27,16 @@ def get_RSS_time(rss_url):
 def get_inactive_RSS_feeds(RSS_dict):
     for k, v in RSS_dict.items():
         latest_RSS_time = get_RSS_time(v)
-        print (k, latest_RSS_time)
+        latest_RSS_datetime = datetime.datetime(
+            latest_RSS_time.tm_year,
+            latest_RSS_time.tm_mon,
+            latest_RSS_time.tm_mday,
+            latest_RSS_time.tm_hour,
+            latest_RSS_time.tm_min,
+            latest_RSS_time.tm_sec
+        )
+        print(k, latest_RSS_datetime)
 
 
 get_inactive_RSS_feeds(RSS_dict)
+print('current time', current_time)
