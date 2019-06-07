@@ -9,14 +9,15 @@ RSS_dict = {
     'Craigslist': ['https://www.craigslist.org/about/best/all/index.rss'],
     'CSS-Tricks': ['http://feeds.feedburner.com/CssTricks'],
     'Engadget': ['http://www.engadget.com/rss.xml'],
-    'Reuters': ['http://feeds.reuters.com/reuters/technologyNews'],
     'Mashable': ['http://feeds.mashable.com/Mashable'],
+    'NYT': ['http://www.nytimes.com/services/xml/rss/nyt/HomePage.xml', 'http://www.nytimes.com/services/xml/rss/nyt/Business.xml'],
+    'Reuters': ['http://feeds.reuters.com/reuters/topNews', 'http://feeds.reuters.com/Reuters/worldNews', 'http://feeds.reuters.com/reuters/technologyNews'],
 }
 
 def get_day_delta():
     """Gathers user input for number of days of inactivity and converts to integer"""
     try:
-        day_delta = int(input('Please enter the number of days of inactivity you would like to search for (i.e. 1, 2, 3) '))
+        day_delta = int(input('Please enter the number of days of inactivity you would like to search for (i.e. 1, 2, 3, etc.) '))
         return (day_delta * 24)
     except ValueError:
         print("Uh-oh that wasn't a number please enter a whole number.")
