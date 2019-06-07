@@ -33,6 +33,15 @@ def get_RSS_time(rss_url):
         return RSS_time
 
 
+def company_output(inactive_RSS_companies):
+    """checks inactive company list and formats print output"""
+    if len(inactive_RSS_companies) > 1:
+        print('List of inactive company RSS feeds:')
+        print('\n'.join(inactive_RSS_companies))
+    else:
+        print('No inactive company RSS feeds to report.')
+
+
 def get_inactive_RSS_feeds(RSS_dict):
     """Iterates thru RSS url feeds and compares published time to current time to
     to determine which companies have not been updated in a given number of days"""
@@ -50,10 +59,9 @@ def get_inactive_RSS_feeds(RSS_dict):
                 latest_RSS_time.tm_min,
                 latest_RSS_time.tm_sec
             )
-            print(k, latest_RSS_datetime)
             if current_time - latest_RSS_datetime > time_delta:
                 inactive_RSS_companies.append(k)
-    return inactive_RSS_companies
+    return company_output(inactive_RSS_companies)
 
 
-print(get_inactive_RSS_feeds(RSS_dict))
+get_inactive_RSS_feeds(RSS_dict)
