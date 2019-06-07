@@ -6,5 +6,6 @@ Code Challenge
 Assumptions:
   Dictionary values are input as arrays.
   Top entry in RSS feed is the latest.
+  User will input the number of days they would like to search against.
   
 Thank you for the opportunity!  I would greatly appreciate any feedback or improvements.
