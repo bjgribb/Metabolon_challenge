@@ -15,12 +15,13 @@ RSS_dict = {
     'Mashable': ['http://feeds.mashable.com/Mashable'],
 }
 
+
 def get_RSS_time(rss_url):
     try:
-        RSS_time = feedparser.parse(rss_url).entries[0].updated_parsed
+        RSS_time = feedparser.parse(rss_url).entries[0].published_parsed
         return RSS_time
-    except ValueError:
-        RSS_time = feedparser.parse(rss_url).entries[0].published.parsed
+    except AttributeError:
+        RSS_time = feedparser.parse(rss_url).entries[0].updated_parsed
         return RSS_time
 
 
